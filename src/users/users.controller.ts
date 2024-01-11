@@ -1,11 +1,20 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 
 @Controller('users')
 export class UsersController {
   @Get() // GET /users or /users?role=value
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  findAllUsers(@Query('role') role?: 'ADMIN' | 'COMPLIANCE') {
+  findAllUsers(@Query('role') role?: 'ADMIN' | 'COMPLIANCE' | 'INTERN') {
     return [];
   }
 
