@@ -32,7 +32,7 @@ export class UsersService {
 
   findOneUser(id: number) {
     const user = this.users.find((user) => user.id === id);
-    console.log(user);
+    return user;
   }
 
   createUser(user: {
@@ -64,5 +64,11 @@ export class UsersService {
       return user;
     });
     return this.findOneUser(id);
+  }
+
+  deleteUser(id: number) {
+    const removedUser = this.findOneUser(id);
+    this.users = this.users.filter((user) => user.id !== id);
+    return removedUser;
   }
 }
