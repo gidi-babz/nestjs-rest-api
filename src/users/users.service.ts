@@ -11,7 +11,7 @@ export class UsersService {
     },
     {
       id: 2,
-      name: 'John Doe',
+      name: 'John Isaac',
       email: 'john.doe@gmail.com',
       role: 'COMPLIANCE',
     },
