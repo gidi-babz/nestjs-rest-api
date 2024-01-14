@@ -23,10 +23,10 @@ export class UsersController {
 
   @Get(':id') // GET /users/:id
   findOneUser(@Param('id') id: string) {
-    return this.usersService.findOneUser(+id);;
+    return this.usersService.findOneUser(+id);
   }
 
-  @Post() // POST /user
+  @Post() // POST /users
   createUser(@Body() user: {
     name: string;
     email: string;
@@ -35,12 +35,16 @@ export class UsersController {
     return this.usersService.createUser(user);
   }
 
-  @Patch(':id') // PATCH /user/:id
-  updateUser(@Param('id') id: string, @Body() userUpdate: object) {
-    return { id, ...userUpdate };
+  @Patch(':id') // PATCH /users/:id
+  updateUser(@Param('id') id: string, @Body() userUpdate: {
+    name: string;
+    email: string;
+    role: 'INTERN' | 'COMPLIANCE' | 'ADMIN';
+  }) {
+    return this.usersService.updateUser(+id, userUpdate);
   }
 
-  @Delete(':id') // DELETE /user/:id
+  @Delete(':id') // DELETE /users/:id
   deleteUser(@Param('id') id: string) {
     return this.usersService.deleteUser(+id);
   }
